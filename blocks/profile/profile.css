@@ -1,47 +1,29 @@
 .profile {
-  padding-top: 36.25px;
-  padding-bottom: 46.25px;
+  width: 880px;
+  max-height: 127.5px;
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.profile__container {
-  display: grid;
-  grid-template-areas:
-    "picture name edit"
-    "picture bio .";
-  height: 127.5px;
-  grid-template-columns: 168.75px 1fr calc(24px + 18px);
+  gap: calc(168.75px - 127.5px + 3.75px);
+  padding: 36.25px 0 46.25px;
 }
 
 .profile__picture {
-  grid-area: picture;
-  background-color: green;
   height: 127.5px;
   width: 127.5px;
-  margin: 0 auto;
   border-radius: 50%;
 }
 
 .profile__name {
-  grid-area: name;
   font-size: 42px;
   font-weight: 500;
   line-height: calc(48 / 42);
-  align-self: center;
-}
-
-.profile__bio {
-  grid-area: bio;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: calc(22 / 18);
+  display: inline;
 }
 
 .profile__button-edit {
-  grid-area: edit;
-  align-self: center;
+  width: 24px;
+  height: 24px;
   padding-left: 18px;
   transition: opacity 0.5s;
 }
@@ -51,9 +33,17 @@
   cursor: pointer;
 }
 
+.profile__bio {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: calc(22 / 18);
+}
+
 .profile__button-add {
   width: 150px;
   height: 50px;
+  position: absolute;
+  right: 0;
   transition: opacity 0.5s;
 }
 
