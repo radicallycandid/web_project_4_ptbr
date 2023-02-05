@@ -1,0 +1,38 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  gap: 20px 17px;
+}
+
+.card {
+  max-height: calc(282px + 79px);
+}
+
+.card__picture {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card__caption-space {
+  height: calc(361px - 282px);
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 21px;
+  padding-right: 18px;
+}
+
+.card__caption-text {
+  font-size: 22px;
+  line-height: calc(29 / 22);
+  font-weight: 900;
+}
+
+.card__button-like {
+  width: 21px;
+  height: 19px;
+  background-image: url(../../images/image-button-like-default.svg);
+}
