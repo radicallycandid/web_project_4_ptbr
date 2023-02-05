@@ -1,0 +1,13 @@
+.edit-form__field {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  font-size: 14px;
+  padding-bottom: 13px;
+  margin-bottom: 30px;
+  line-height: calc(17 / 14);
+}
+
+.edit-form__field:last-of-type {
+  margin-bottom: 48px;
+}

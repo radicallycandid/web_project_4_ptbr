@@ -1,0 +1,13 @@
+.edit-form__button-close {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  transition: opacity 0.5s;
+}
+
+.edit-form__button-close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+.edit-form__title {
+  width: 100%;
+  color: #000;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: calc(29 / 24);
+  margin: 0 0 54px;
+}

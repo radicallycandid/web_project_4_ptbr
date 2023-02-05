@@ -1,0 +1,12 @@
+.edit-form {
+  position: sticky;
+  margin: 0 auto;
+  top: 195px;
+  width: min(88vw, 430px);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 34px 36px 36px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}

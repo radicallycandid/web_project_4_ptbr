@@ -1,7 +1,7 @@
 .card__button-like {
   width: 21px;
   height: 19px;
-  background-image: url(../../images/image-button-like-default.svg);
+  background-image: url(../../../images/image-button-like-default.svg);
   transition: opacity 0.5s;
 }
 
