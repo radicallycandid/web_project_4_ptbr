@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 879px) {
   .profile__bio {
     text-align: center;
     margin-bottom: 36px;
