@@ -1,9 +1,16 @@
 .profile {
-  width: 880px;
-  max-height: 127.5px;
+  max-width: 880px;
+  /* max-height: 127.5px; */
   position: relative;
   display: flex;
   align-items: center;
   gap: calc(168.75px - 127.5px + 3.75px);
   padding: 36.25px 0 46.25px;
+}
+
+@media screen and (max-width: 580px) {
+  .profile {
+    flex-direction: column;
+    margin-bottom: 36px;
+  }
 }
