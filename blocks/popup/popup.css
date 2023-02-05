@@ -1,0 +1,67 @@
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* visibility: hidden; */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
+}
+
+.edit-form {
+  position: sticky;
+  margin: 0 auto;
+  top: 195px;
+  width: 430px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 36px;
+  box-sizing: border-box;
+}
+
+.edit-form__button-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -48px;
+  right: -48px;
+}
+
+.edit-form__title {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: calc(30 / 24);
+  padding-bottom: 24px;
+}
+
+.edit-form__field {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 14px;
+  padding: 30px 0 13px;
+  line-height: calc(17 / 14);
+}
+
+.edit-form__button-submit {
+  width: 100%;
+  height: 50px;
+  margin-top: 48px;
+  border: none;
+  border-radius: 2px;
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: calc(22 / 18);
+}
