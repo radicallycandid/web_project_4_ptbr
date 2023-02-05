@@ -43,9 +43,21 @@
   grid-area: edit;
   align-self: center;
   padding-left: 18px;
+  transition: opacity 0.5s;
+}
+
+.profile__button-edit:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__button-add {
   width: 150px;
   height: 50px;
+  transition: opacity 0.5s;
+}
+
+.profile__button-add:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
