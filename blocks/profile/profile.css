@@ -29,7 +29,6 @@
   font-size: 42px;
   font-weight: 500;
   line-height: calc(48 / 42);
-  color: #fff;
   align-self: center;
 }
 
@@ -38,7 +37,6 @@
   font-size: 18px;
   font-weight: 400;
   line-height: calc(22 / 18);
-  color: #fff;
 }
 
 .profile__button-edit {

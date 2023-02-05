@@ -29,6 +29,7 @@
   font-size: 22px;
   line-height: calc(29 / 22);
   font-weight: 900;
+  color: #000;
 }
 
 .card__button-like {
