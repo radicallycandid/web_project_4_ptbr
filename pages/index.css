@@ -1,6 +1,7 @@
 @import url(../vendor/normalize.css);
 
-/* Page */
+/* Background and Page */
+@import url(../blocks/background/background.css);
 @import url(../blocks/page/page.css);
 
 /* Header */
@@ -9,7 +10,7 @@
 /* Profile */
 @import url(../blocks/lead/lead.css);
 
-/* Cards */
+/* Cards and Card */
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
 
