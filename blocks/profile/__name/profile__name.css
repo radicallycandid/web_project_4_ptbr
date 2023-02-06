@@ -2,7 +2,7 @@
   font-size: min(42px, calc((22 / 320) * 100vw));
   font-weight: 500;
   line-height: calc(48 / 42);
-  display: inline;
+  margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

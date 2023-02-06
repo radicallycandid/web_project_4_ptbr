@@ -11,3 +11,12 @@
   opacity: 0.6;
   cursor: pointer;
 }
+
+@media screen and (max-width: 580px) {
+  .edit-form__button-close {
+    width: 26px;
+    height: 26px;
+    top: -40px;
+    right: 0;
+  }
+}

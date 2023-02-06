@@ -2,6 +2,7 @@
   font-size: min(18px, calc((14 / 320) * 100vw));
   font-weight: 400;
   line-height: calc(22 / 18);
+  margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

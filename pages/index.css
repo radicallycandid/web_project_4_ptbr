@@ -13,6 +13,7 @@
 /* Profile */
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__picture/profile__picture.css);
+@import url(../blocks/profile/__container/profile__container.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__button-edit/profile__button-edit.css);
 @import url(../blocks/profile/__bio/profile__bio.css);
@@ -32,6 +33,7 @@
 
 /* Popup and Edit Form */
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_visible/popup_visible.css);
 @import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/edit-form/edit-form.css);
 @import url(../blocks/edit-form/__button-close/edit-form__button-close.css);

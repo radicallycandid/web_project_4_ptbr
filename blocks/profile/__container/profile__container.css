@@ -1,0 +1,7 @@
+.profile__container {
+  max-width: min(500px, 88vw);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

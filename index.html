@@ -23,7 +23,7 @@
           class="profile__picture"
         />
         <!-- Simple container, no particular style -->
-        <div>
+        <div class="profile__container">
           <h1 class="profile__name">Jacques Cousteau</h1>
           <img
             src="images/image-button-edit.svg"
@@ -118,17 +118,18 @@
           <h2 class="edit-form__title">Editar perfil</h2>
           <input
             type="text"
-            class="edit-form__field"
+            class="edit-form__field edit-form__field_type_name"
             placeholder="Enter your username"
           />
           <input
             type="text"
-            class="edit-form__field"
+            class="edit-form__field edit-form__field_type_bio"
             placeholder="Enter your bio"
           />
           <button type="submit" class="edit-form__button-submit">Salvar</button>
         </form>
       </div>
     </div>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
