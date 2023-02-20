@@ -1,4 +1,3 @@
-// console.log("Success");
 const popup = document.querySelector(".popup");
 const buttonEditProfile = document.querySelector(".profile__button-edit");
 const buttonCloseForm = document.querySelector(".edit-form__button-close");
