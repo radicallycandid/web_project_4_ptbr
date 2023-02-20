@@ -22,7 +22,6 @@
           alt="Profile picture"
           class="profile__picture"
         />
-        <!-- Simple container, no particular style -->
         <div class="profile__container">
           <h1 class="profile__name">Jacques Cousteau</h1>
           <img
@@ -38,74 +37,7 @@
           class="profile__button-add"
         />
       </section>
-      <ul class="cards">
-        <li class="card">
-          <img
-            src="images/image-card-yosemite.jpg"
-            alt="Vale de Yosemite"
-            class="card__picture"
-          />
-          <div class="card__caption-space">
-            <p class="card__caption-text">Vale de Yosemite</p>
-            <div class="card__button-like"></div>
-          </div>
-        </li>
-        <li class="card">
-          <img
-            src="images/image-card-louise.jpg"
-            alt="Lago Louise"
-            class="card__picture"
-          />
-          <div class="card__caption-space">
-            <p class="card__caption-text">Lago Louise</p>
-            <div class="card__button-like"></div>
-          </div>
-        </li>
-        <li class="card">
-          <img
-            src="images/image-card-mountain.jpg"
-            alt="Montanhas Carecas"
-            class="card__picture"
-          />
-          <div class="card__caption-space">
-            <p class="card__caption-text">Montanhas Carecas</p>
-            <div class="card__button-like"></div>
-          </div>
-        </li>
-        <li class="card">
-          <img
-            src="images/image-card-latemar.jpg"
-            alt="Latemar"
-            class="card__picture"
-          />
-          <div class="card__caption-space">
-            <p class="card__caption-text">Latemar</p>
-            <div class="card__button-like"></div>
-          </div>
-        </li>
-        <li class="card">
-          <img
-            src="images/image-card-vanoise.jpg"
-            alt="Vanoise National Park"
-            class="card__picture"
-          />
-          <div class="card__caption-space">
-            <p class="card__caption-text">Vanoise National Park</p>
-            <div class="card__button-like"></div>
-          </div>
-        </li>
-        <li class="card">
-          <img
-            src="images/image-card-braies.jpg"
-            alt="Lago di Braies"
-            class="card__picture"
-          />
-          <div class="card__caption-space">
-            <p class="card__caption-text">Lago di Braies</p>
-            <div class="card__button-like"></div>
-          </div>
-        </li>
-      </ul>
+      <ul class="cards"></ul>
       <footer class="footer">© 2023. Around the US</footer>
       <div class="popup">
         <div class="popup__overlay"></div>
@@ -130,6 +62,15 @@
         </form>
       </div>
     </div>
-    <script src="scripts/script.js"></script>
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__picture" />
+        <div class="card__caption-space">
+          <p class="card__caption-text"></p>
+          <div class="card__button-like"></div>
+        </div>
+      </li>
+    </template>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
