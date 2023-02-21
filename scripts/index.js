@@ -1,5 +1,6 @@
 const popup = document.querySelector(".popup");
 const buttonEditProfile = document.querySelector(".profile__button-edit");
+const buttonAddCard = document.querySelector(".profile__button-add");
 const buttonCloseForm = document.querySelector(".edit-form__button-close");
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
@@ -42,10 +43,18 @@ function addCard(imageTitle, imageUrl) {
   cardElement.querySelector(".card__picture").src = imageUrl;
   cardElement.querySelector(".card__caption-text").textContent = imageTitle;
 
+  // Make like button work by toggling modifier class
   cardElement
     .querySelector(".card__button-like")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("card__button-like_active");
+    });
+
+  // Make remove button work by accessing parent element
+  cardElement
+    .querySelector(".card__button-trash")
+    .addEventListener("click", function (event) {
+      event.target.parentElement.remove();
     });
 
   cardContainer.prepend(cardElement);
@@ -55,38 +64,19 @@ initialCards.forEach(function (card) {
   addCard(card.name, card.link);
 });
 
-addButton.addEventListener("click", function () {
-  const artist = document.querySelector(".input__text_type_artist");
-  const title = document.querySelector(".input__text_type_title");
-
-  addSong(artist.value, title.value);
-  renderHasSongs();
-
-  artist.value = "";
-  title.value = "";
-});
-
-function toggleForm() {
+function toggleProfileForm() {
   profileFormName.value = profileName.textContent;
   profileFormBio.value = profileBio.textContent;
   popup.classList.toggle("popup_visible");
 }
 
-function handleFormSubmit(event) {
+function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileName.textContent = profileFormName.value;
   profileBio.textContent = profileFormBio.value;
   popup.classList.remove("popup_visible");
 }
 
-buttonEditProfile.addEventListener("click", toggleForm);
-buttonCloseForm.addEventListener("click", toggleForm);
-profileForm.addEventListener("submit", handleFormSubmit);
-
-const likeButtons = document.querySelectorAll(".card__button-like");
-
-Array.from(likeButtons).forEach(function (heart) {
-  heart.addEventListener("click", function () {
-    heart.classList.toggle("card__button-like_active");
-  });
-});
+buttonEditProfile.addEventListener("click", toggleProfileForm);
+buttonCloseForm.addEventListener("click", toggleProfileForm);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
