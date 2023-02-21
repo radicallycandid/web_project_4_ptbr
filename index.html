@@ -39,26 +39,48 @@
       </section>
       <ul class="cards"></ul>
       <footer class="footer">© 2023. Around the US</footer>
-      <div class="popup">
+      <div class="popup popup_type_edit-profile">
         <div class="popup__overlay"></div>
-        <form id="edit-form" class="edit-form">
+        <form id="edit-profile" class="form form_type_edit-profile">
           <img
             src="images/image-button-close.svg"
             alt="Fechar pop-up"
-            class="edit-form__button-close"
+            class="form__button-close form__button-close_type_edit-profile"
           />
-          <h2 class="edit-form__title">Editar perfil</h2>
+          <h2 class="form__title">Editar perfil</h2>
           <input
             type="text"
-            class="edit-form__field edit-form__field_type_name"
-            placeholder="Enter your username"
+            class="form__field form__field_type_name"
+            placeholder="Nome de usuário"
           />
           <input
             type="text"
-            class="edit-form__field edit-form__field_type_bio"
-            placeholder="Enter your bio"
+            class="form__field form__field_type_bio"
+            placeholder="Descrição"
           />
-          <button type="submit" class="edit-form__button-submit">Salvar</button>
+          <button type="submit" class="form__button-submit">Salvar</button>
+        </form>
+      </div>
+      <div class="popup popup_type_add-card">
+        <div class="popup__overlay"></div>
+        <form id="add-card" class="form form_type_add-card">
+          <img
+            src="images/image-button-close.svg"
+            alt="Fechar pop-up"
+            class="form__button-close form__button-close_type_add-card"
+          />
+          <h2 class="form__title">Novo local</h2>
+          <input
+            type="text"
+            class="form__field form__field_type_place"
+            placeholder="Título"
+          />
+          <input
+            type="text"
+            class="form__field form__field_type_url"
+            placeholder="Link de imagem"
+          />
+          <button type="submit" class="form__button-submit">Criar</button>
         </form>
       </div>
     </div>

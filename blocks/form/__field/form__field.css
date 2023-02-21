@@ -1,4 +1,4 @@
-.edit-form__field {
+.form__field {
   width: 100%;
   border: none;
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
@@ -8,6 +8,6 @@
   line-height: calc(17 / 14);
 }
 
-.edit-form__field:last-of-type {
+.form__field:last-of-type {
   margin-bottom: 48px;
 }

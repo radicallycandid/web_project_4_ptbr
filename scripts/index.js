@@ -1,14 +1,44 @@
-const popup = document.querySelector(".popup");
+// Functionality to edit profile
+
 const buttonEditProfile = document.querySelector(".profile__button-edit");
-const buttonAddCard = document.querySelector(".profile__button-add");
-const buttonCloseForm = document.querySelector(".edit-form__button-close");
+const popupEditProfile = document.querySelector(".popup_type_edit-profile");
+const buttonCloseEditProfile = document.querySelector(
+  ".form__button-close_type_edit-profile"
+);
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
-const profileForm = document.querySelector(".edit-form");
-const profileFormName = document.querySelector(".edit-form__field_type_name");
-const profileFormBio = document.querySelector(".edit-form__field_type_bio");
-const cardContainer = document.querySelector(".cards");
+const formEditProfile = document.querySelector(".form_type_edit-profile");
+const formEditProfileName = document.querySelector(".form__field_type_name");
+const formEditProfileBio = document.querySelector(".form__field_type_bio");
 
+function toggleFormEditProfile() {
+  formEditProfileName.value = profileName.textContent;
+  formEditProfileBio.value = profileBio.textContent;
+  popupEditProfile.classList.toggle("popup_visible");
+}
+
+function handleFormSubmitEditProfile(event) {
+  event.preventDefault();
+  profileName.textContent = formEditProfileName.value;
+  profileBio.textContent = formEditProfileBio.value;
+  popupEditProfile.classList.remove("popup_visible");
+}
+
+buttonEditProfile.addEventListener("click", toggleFormEditProfile);
+buttonCloseEditProfile.addEventListener("click", toggleFormEditProfile);
+formEditProfile.addEventListener("submit", handleFormSubmitEditProfile);
+
+// Functionality to add and manage cards
+
+const buttonAddCard = document.querySelector(".profile__button-add");
+const popupAddCard = document.querySelector(".popup_type_add-card");
+const buttonCloseAddCard = document.querySelector(
+  ".form__button-close_type_add-card"
+);
+const formAddCard = document.querySelector(".form_type_add-card");
+const formAddCardPlace = document.querySelector(".form__field_type_place");
+const formAddCardUrl = document.querySelector(".form__field_type_url");
+const cardContainer = document.querySelector(".cards");
 const initialCards = [
   {
     name: "Lago di Braies",
@@ -64,19 +94,18 @@ initialCards.forEach(function (card) {
   addCard(card.name, card.link);
 });
 
-function toggleProfileForm() {
-  profileFormName.value = profileName.textContent;
-  profileFormBio.value = profileBio.textContent;
-  popup.classList.toggle("popup_visible");
+function toggleFormAddCard() {
+  formAddCardPlace.value = "";
+  formAddCardUrl.value = "";
+  popupAddCard.classList.toggle("popup_visible");
 }
 
-function handleProfileFormSubmit(event) {
+function handleFormSubmitAddCard(event) {
   event.preventDefault();
-  profileName.textContent = profileFormName.value;
-  profileBio.textContent = profileFormBio.value;
-  popup.classList.remove("popup_visible");
+  addCard(formAddCardPlace.value, formAddCardUrl.value);
+  popupAddCard.classList.remove("popup_visible");
 }
 
-buttonEditProfile.addEventListener("click", toggleProfileForm);
-buttonCloseForm.addEventListener("click", toggleProfileForm);
-profileForm.addEventListener("submit", handleProfileFormSubmit);
+buttonAddCard.addEventListener("click", toggleFormAddCard);
+buttonCloseAddCard.addEventListener("click", toggleFormAddCard);
+formAddCard.addEventListener("submit", handleFormSubmitAddCard);
