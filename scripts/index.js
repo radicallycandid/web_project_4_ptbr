@@ -14,11 +14,6 @@ const formEditProfileBio = document.querySelector(".form__field_type_bio");
 function toggleFormEditProfile() {
   formEditProfileName.value = profileName.textContent;
   formEditProfileBio.value = profileBio.textContent;
-  if (popupEditProfile.style.opacity === "1") {
-    popupEditProfile.style.opacity = "0";
-  } else {
-    popupEditProfile.style.opacity = "1";
-  }
   popupEditProfile.classList.toggle("popup_visible");
 }
 
@@ -26,7 +21,6 @@ function handleFormSubmitEditProfile(event) {
   event.preventDefault();
   profileName.textContent = formEditProfileName.value;
   profileBio.textContent = formEditProfileBio.value;
-  popupEditProfile.style.opacity = "0";
   popupEditProfile.classList.remove("popup_visible");
 }
 
