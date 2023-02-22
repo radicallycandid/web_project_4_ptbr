@@ -32,8 +32,9 @@
 /* Footer */
 @import url(../blocks/footer/footer.css);
 
-/* Popup and Edit Form */
+/* Edit Profile Form */
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_type/popup_type_zoom.css);
 @import url(../blocks/popup/_visible/popup_visible.css);
 @import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/form/form.css);
@@ -41,3 +42,9 @@
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__field/form__field.css);
 @import url(../blocks/form/__button-submit/form__button-submit.css);
+
+/* Zoom */
+@import url(../blocks/zoom/zoom.css);
+@import url(../blocks/zoom/__button-close/zoom__button-close.css);
+@import url(../blocks/zoom/__picture/zoom__picture.css);
+@import url(../blocks/zoom/__caption-text/zoom__caption-text.css);

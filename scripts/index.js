@@ -14,6 +14,11 @@ const formEditProfileBio = document.querySelector(".form__field_type_bio");
 function toggleFormEditProfile() {
   formEditProfileName.value = profileName.textContent;
   formEditProfileBio.value = profileBio.textContent;
+  if (popupEditProfile.style.opacity === "1") {
+    popupEditProfile.style.opacity = "0";
+  } else {
+    popupEditProfile.style.opacity = "1";
+  }
   popupEditProfile.classList.toggle("popup_visible");
 }
 
@@ -21,6 +26,7 @@ function handleFormSubmitEditProfile(event) {
   event.preventDefault();
   profileName.textContent = formEditProfileName.value;
   profileBio.textContent = formEditProfileBio.value;
+  popupEditProfile.style.opacity = "0";
   popupEditProfile.classList.remove("popup_visible");
 }
 
@@ -65,6 +71,10 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
   },
 ];
+const popupZoom = document.querySelector(".popup_type_zoom");
+const zoomImg = popupZoom.querySelector(".zoom__picture");
+const zoomP = popupZoom.querySelector(".zoom__caption-text");
+const buttonCloseZoom = document.querySelector(".zoom__button-close");
 
 function addCard(imageTitle, imageUrl) {
   const cardTemplate = document.querySelector("#card-template").content;
@@ -85,6 +95,16 @@ function addCard(imageTitle, imageUrl) {
     .querySelector(".card__button-trash")
     .addEventListener("click", function (event) {
       event.target.parentElement.remove();
+    });
+
+  // Make zoom work
+  cardElement
+    .querySelector(".card__picture")
+    .addEventListener("click", function (event) {
+      zoomImg.src = imageUrl;
+      zoomImg.alt = imageTitle;
+      zoomP.textContent = imageTitle;
+      popupZoom.classList.toggle("popup_visible");
     });
 
   cardContainer.prepend(cardElement);
@@ -109,3 +129,7 @@ function handleFormSubmitAddCard(event) {
 buttonAddCard.addEventListener("click", toggleFormAddCard);
 buttonCloseAddCard.addEventListener("click", toggleFormAddCard);
 formAddCard.addEventListener("submit", handleFormSubmitAddCard);
+
+buttonCloseZoom.addEventListener("click", function () {
+  popupZoom.classList.remove("popup_visible");
+});

@@ -1,0 +1,6 @@
+.zoom__picture {
+  display: block;
+  max-width: min(75vw, 880px);
+  max-height: 75vh;
+  object-fit: contain;
+}

@@ -1,0 +1,21 @@
+.zoom__button-close {
+  display: block;
+  align-self: flex-end;
+  transform: translateX(36px);
+  width: 36px;
+  height: 36px;
+  transition: opacity 0.5s;
+}
+
+.zoom__button-close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 580px) {
+  .zoom__button-close {
+    width: 30px;
+    height: 30px;
+    transform: translateX(30px);
+  }
+}

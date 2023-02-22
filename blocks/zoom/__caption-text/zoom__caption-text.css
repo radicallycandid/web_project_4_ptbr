@@ -1,0 +1,8 @@
+.zoom__caption-text {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  line-height: calc(15 / 12);
+  padding: 0;
+  margin: 10px 0 0 0;
+}
