@@ -75,6 +75,7 @@ function addCard(imageTitle, imageUrl) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
   cardElement.querySelector(".card__picture").src = imageUrl;
+  cardElement.querySelector(".card__picture").alt = imageTitle;
   cardElement.querySelector(".card__caption-text").textContent = imageTitle;
 
   // Make like button work by toggling modifier class
