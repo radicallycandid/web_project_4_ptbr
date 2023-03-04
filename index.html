@@ -41,7 +41,7 @@
       <footer class="footer">© 2023. Around the US</footer>
       <div class="popup popup_type_edit-profile">
         <div class="popup__overlay"></div>
-        <form id="edit-profile" class="form form_type_edit-profile">
+        <form id="edit-profile" class="form form_type_edit-profile" novalidate>
           <img
             src="images/image-button-close.svg"
             alt="Fechar pop-up"
@@ -51,11 +51,19 @@
           <input
             type="text"
             class="form__field form__field_type_name"
+            id="user-name-input"
+            required
+            minlength="2"
+            maxlength="40"
             placeholder="Nome de usuário"
           />
           <input
             type="text"
             class="form__field form__field_type_bio"
+            id="user-bio-input"
+            required
+            minlength="2"
+            maxlength="200"
             placeholder="Descrição"
           />
           <button type="submit" class="form__button-submit">Salvar</button>
@@ -63,7 +71,7 @@
       </div>
       <div class="popup popup_type_add-card">
         <div class="popup__overlay"></div>
-        <form id="add-card" class="form form_type_add-card">
+        <form id="add-card" class="form form_type_add-card" novalidate>
           <img
             src="images/image-button-close.svg"
             alt="Fechar pop-up"
@@ -73,11 +81,17 @@
           <input
             type="text"
             class="form__field form__field_type_place"
+            id="place-title-input"
+            required
+            minlength="2"
+            maxlength="30"
             placeholder="Título"
           />
           <input
-            type="text"
+            type="url"
             class="form__field form__field_type_url"
+            id="place-url-input"
+            required
             placeholder="Link de imagem"
           />
           <button type="submit" class="form__button-submit">Criar</button>
