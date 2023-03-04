@@ -48,8 +48,8 @@ const cardContainer = document.querySelector(".cards");
 
 const popupZoom = document.querySelector(".popup_type_zoom");
 const overlayZoom = popupZoom.querySelector(".popup__overlay");
-const zoomImg = popupZoom.querySelector(".zoom__picture");
-const zoomP = popupZoom.querySelector(".zoom__caption-text");
+const imageZoom = popupZoom.querySelector(".zoom__picture");
+const captionZoom = popupZoom.querySelector(".zoom__caption-text");
 const buttonCloseZoom = document.querySelector(".zoom__button-close");
 
 function addCard(imageTitle, imageUrl) {
@@ -78,9 +78,9 @@ function addCard(imageTitle, imageUrl) {
   cardElement
     .querySelector(".card__picture")
     .addEventListener("click", function (event) {
-      zoomImg.src = imageUrl;
-      zoomImg.alt = imageTitle;
-      zoomP.textContent = imageTitle;
+      imageZoom.src = imageUrl;
+      imageZoom.alt = imageTitle;
+      captionZoom.textContent = imageTitle;
       popupZoom.classList.toggle("popup_visible");
     });
 
@@ -136,17 +136,23 @@ function handleFormSubmitAddCard(event) {
 
 formAddCard.addEventListener("submit", handleFormSubmitAddCard);
 
+function hideZoomPopup() {
+  popupZoom.classList.remove("popup_visible");
+}
+
 [buttonCloseZoom, overlayZoom].forEach((element) => {
-  element.addEventListener("click", function () {
-    popupZoom.classList.remove("popup_visible");
-  });
+  element.addEventListener("click", hideZoomPopup);
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     const popupVisible = document.querySelector(".popup_visible");
-    if (popupVisible) {
-      popupVisible.classList.remove("popup_visible");
+    if (popupVisible === popupEditProfile) {
+      toggleFormEditProfile();
+    } else if (popupVisible === popupAddCard) {
+      toggleFormAddCard();
+    } else if (popupVisible === popupZoom) {
+      hideZoomPopup();
     }
   }
 });
