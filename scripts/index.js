@@ -9,8 +9,8 @@ const buttonCloseEditProfile = document.querySelector(
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
 const formEditProfile = document.querySelector(".form_type_edit-profile");
-const formEditProfileName = document.querySelector(".form__field_type_name");
-const formEditProfileBio = document.querySelector(".form__field_type_bio");
+const formEditProfileName = document.querySelector(".form__input_type_name");
+const formEditProfileBio = document.querySelector(".form__input_type_bio");
 
 function toggleFormEditProfile() {
   formEditProfileName.value = profileName.textContent;
@@ -42,8 +42,8 @@ const buttonCloseAddCard = document.querySelector(
   ".form__button-close_type_add-card"
 );
 const formAddCard = document.querySelector(".form_type_add-card");
-const formAddCardPlace = document.querySelector(".form__field_type_place");
-const formAddCardUrl = document.querySelector(".form__field_type_url");
+const formAddCardPlace = document.querySelector(".form__input_type_place");
+const formAddCardUrl = document.querySelector(".form__input_type_url");
 const cardContainer = document.querySelector(".cards");
 
 const popupZoom = document.querySelector(".popup_type_zoom");
