@@ -50,22 +50,24 @@
           <h2 class="form__title">Editar perfil</h2>
           <input
             type="text"
-            class="form__field form__field_type_name"
+            class="form__input form__input_type_name"
             id="user-name-input"
             required
             minlength="2"
             maxlength="40"
             placeholder="Nome de usuário"
           />
+          <span class="form__input-error user-name-input-error"></span>
           <input
             type="text"
-            class="form__field form__field_type_bio"
+            class="form__input form__input_type_bio"
             id="user-bio-input"
             required
             minlength="2"
             maxlength="200"
             placeholder="Descrição"
           />
+          <span class="form__input-error user-bio-input-error"></span>
           <button type="submit" class="form__button-submit">Salvar</button>
         </form>
       </div>
@@ -80,20 +82,22 @@
           <h2 class="form__title">Novo local</h2>
           <input
             type="text"
-            class="form__field form__field_type_place"
+            class="form__input form__input_type_place"
             id="place-title-input"
             required
             minlength="2"
             maxlength="30"
             placeholder="Título"
           />
+          <span class="form__input-error place-title-input-error"></span>
           <input
             type="url"
-            class="form__field form__field_type_url"
+            class="form__input form__input_type_url"
             id="place-url-input"
             required
             placeholder="Link de imagem"
           />
+          <span class="form__input-error place-url-input-error"></span>
           <button type="submit" class="form__button-submit">Criar</button>
         </form>
       </div>
