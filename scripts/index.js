@@ -2,6 +2,7 @@
 
 const buttonEditProfile = document.querySelector(".profile__button-edit");
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
+const overlayEditProfile = popupEditProfile.querySelector(".popup__overlay");
 const buttonCloseEditProfile = document.querySelector(
   ".form__button-close_type_edit-profile"
 );
@@ -24,14 +25,19 @@ function handleFormSubmitEditProfile(event) {
   popupEditProfile.classList.remove("popup_visible");
 }
 
-buttonEditProfile.addEventListener("click", toggleFormEditProfile);
-buttonCloseEditProfile.addEventListener("click", toggleFormEditProfile);
+[buttonEditProfile, buttonCloseEditProfile, overlayEditProfile].forEach(
+  (element) => {
+    element.addEventListener("click", toggleFormEditProfile);
+  }
+);
+
 formEditProfile.addEventListener("submit", handleFormSubmitEditProfile);
 
 // Functionality to add and manage cards
 
 const buttonAddCard = document.querySelector(".profile__button-add");
 const popupAddCard = document.querySelector(".popup_type_add-card");
+const overlayAddCard = popupAddCard.querySelector(".popup__overlay");
 const buttonCloseAddCard = document.querySelector(
   ".form__button-close_type_add-card"
 );
@@ -39,33 +45,9 @@ const formAddCard = document.querySelector(".form_type_add-card");
 const formAddCardPlace = document.querySelector(".form__field_type_place");
 const formAddCardUrl = document.querySelector(".form__field_type_url");
 const cardContainer = document.querySelector(".cards");
-const initialCards = [
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-];
+
 const popupZoom = document.querySelector(".popup_type_zoom");
+const overlayZoom = popupZoom.querySelector(".popup__overlay");
 const zoomImg = popupZoom.querySelector(".zoom__picture");
 const zoomP = popupZoom.querySelector(".zoom__caption-text");
 const buttonCloseZoom = document.querySelector(".zoom__button-close");
@@ -105,6 +87,33 @@ function addCard(imageTitle, imageUrl) {
   cardContainer.prepend(cardElement);
 }
 
+const initialCards = [
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+  },
+  {
+    name: "Parque Nacional da Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+  },
+  {
+    name: "Montanhas Carecas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+  },
+  {
+    name: "Vale de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+  },
+];
+
 initialCards.forEach(function (card) {
   addCard(card.name, card.link);
 });
@@ -121,10 +130,14 @@ function handleFormSubmitAddCard(event) {
   popupAddCard.classList.remove("popup_visible");
 }
 
-buttonAddCard.addEventListener("click", toggleFormAddCard);
-buttonCloseAddCard.addEventListener("click", toggleFormAddCard);
+[buttonAddCard, buttonCloseAddCard, overlayAddCard].forEach((element) => {
+  element.addEventListener("click", toggleFormAddCard);
+});
+
 formAddCard.addEventListener("submit", handleFormSubmitAddCard);
 
-buttonCloseZoom.addEventListener("click", function () {
-  popupZoom.classList.remove("popup_visible");
+[buttonCloseZoom, overlayZoom].forEach((element) => {
+  element.addEventListener("click", function () {
+    popupZoom.classList.remove("popup_visible");
+  });
 });
