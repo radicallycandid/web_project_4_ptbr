@@ -141,3 +141,12 @@ formAddCard.addEventListener("submit", handleFormSubmitAddCard);
     popupZoom.classList.remove("popup_visible");
   });
 });
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const popupVisible = document.querySelector(".popup_visible");
+    if (popupVisible) {
+      popupVisible.classList.remove("popup_visible");
+    }
+  }
+});
