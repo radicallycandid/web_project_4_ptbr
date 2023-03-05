@@ -14,6 +14,9 @@ const profileEdit = profile.querySelector(".profile__edit");
 const profileName = profile.querySelector(".profile__name");
 const profileBio = profile.querySelector(".profile__bio");
 
+formEditProfileName.value = profileName.textContent;
+formEditProfileBio.value = profileBio.textContent;
+
 function toggleFormEditProfile() {
   formEditProfileName.value = profileName.textContent;
   formEditProfileBio.value = profileBio.textContent;
@@ -32,8 +35,6 @@ function handleFormSubmitEditProfile(event) {
 });
 
 formEditProfile.addEventListener("submit", handleFormSubmitEditProfile);
-
-// Functionality to add and manage cards
 
 const buttonAddCard = profile.querySelector(".profile__add");
 const popupAddCard = document.querySelector(".popup_type_add-card");
@@ -58,21 +59,18 @@ function addCard(imageTitle, imageUrl) {
   cardElement.querySelector(".card__picture").alt = imageTitle;
   cardElement.querySelector(".card__caption-text").textContent = imageTitle;
 
-  // Make like button work by toggling modifier class
   cardElement
     .querySelector(".card__button-like")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("card__button-like_active");
     });
 
-  // Make remove button work by accessing parent element
   cardElement
     .querySelector(".card__button-trash")
     .addEventListener("click", function (event) {
       event.target.parentElement.remove();
     });
 
-  // Make zoom work
   cardElement
     .querySelector(".card__picture")
     .addEventListener("click", function (event) {

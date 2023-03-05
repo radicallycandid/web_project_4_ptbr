@@ -57,7 +57,7 @@
             maxlength="40"
             placeholder="Nome de usuário"
           />
-          <span class="popup__input-error user-name-input-error"></span>
+          <span class="popup__error user-name-input-error"></span>
           <input
             type="text"
             class="popup__input popup__input_type_bio"
@@ -67,7 +67,7 @@
             maxlength="200"
             placeholder="Descrição"
           />
-          <span class="popup__input-error user-bio-input-error"></span>
+          <span class="popup__error user-bio-input-error"></span>
           <button type="submit" class="popup__button">Salvar</button>
         </form>
       </div>
@@ -89,7 +89,9 @@
             maxlength="30"
             placeholder="Título"
           />
-          <span class="popup__input-error place-title-input-error"></span>
+          <span class="popup__error place-title-input-error"
+            >Preencha esse campo.</span
+          >
           <input
             type="url"
             class="popup__input popup__input_type_url"
@@ -97,7 +99,9 @@
             required
             placeholder="Link de imagem"
           />
-          <span class="popup__input-error place-url-input-error"></span>
+          <span class="popup__error place-url-input-error"
+            >Por favor, insira um endereço web.</span
+          >
           <button type="submit" class="popup__button">Criar</button>
         </form>
       </div>
@@ -125,5 +129,6 @@
       </li>
     </template>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>
