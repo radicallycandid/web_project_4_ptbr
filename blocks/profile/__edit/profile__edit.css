@@ -1,4 +1,4 @@
-.profile__button-edit {
+.profile__edit {
   width: min(24px, calc((18 / 320) * 100vw));
   height: min(24px, calc((18 / 320) * 100vw));
   transition: opacity 0.5s;
@@ -7,13 +7,13 @@
   right: -42px;
 }
 
-.profile__button-edit:hover {
+.profile__edit:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 
 @media screen and (max-width: 879px) {
-  .profile__button-edit {
+  .profile__edit {
     top: calc((4 / 320) * 100vw);
     right: calc((-28 / 320) * 100vw);
   }

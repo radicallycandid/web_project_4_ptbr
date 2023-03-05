@@ -27,78 +27,78 @@
           <img
             src="images/image-button-edit.svg"
             alt="Edit profile"
-            class="profile__button-edit"
+            class="profile__edit"
           />
           <h2 class="profile__bio">Explorar</h2>
         </div>
         <img
           src="images/image-plus-sign.svg"
           alt="New post"
-          class="profile__button-add"
+          class="profile__add"
         />
       </section>
       <ul class="cards"></ul>
       <footer class="footer">© 2023. Around the US</footer>
       <div class="popup popup_type_edit-profile">
         <div class="popup__overlay"></div>
-        <form id="edit-profile" class="form form_type_edit-profile" novalidate>
+        <form id="edit-profile" class="popup__form" novalidate>
           <img
             src="images/image-button-close.svg"
             alt="Fechar pop-up"
-            class="form__button-close form__button-close_type_edit-profile"
+            class="popup__close"
           />
-          <h2 class="form__title">Editar perfil</h2>
+          <h2 class="popup__title">Editar perfil</h2>
           <input
             type="text"
-            class="form__input form__input_type_name"
+            class="popup__input popup__input_type_name"
             id="user-name-input"
             required
             minlength="2"
             maxlength="40"
             placeholder="Nome de usuário"
           />
-          <span class="form__input-error user-name-input-error"></span>
+          <span class="popup__input-error user-name-input-error"></span>
           <input
             type="text"
-            class="form__input form__input_type_bio"
+            class="popup__input popup__input_type_bio"
             id="user-bio-input"
             required
             minlength="2"
             maxlength="200"
             placeholder="Descrição"
           />
-          <span class="form__input-error user-bio-input-error"></span>
-          <button type="submit" class="form__button-submit">Salvar</button>
+          <span class="popup__input-error user-bio-input-error"></span>
+          <button type="submit" class="popup__button">Salvar</button>
         </form>
       </div>
       <div class="popup popup_type_add-card">
         <div class="popup__overlay"></div>
-        <form id="add-card" class="form form_type_add-card" novalidate>
+        <form id="add-card" class="popup__form" novalidate>
           <img
             src="images/image-button-close.svg"
             alt="Fechar pop-up"
-            class="form__button-close form__button-close_type_add-card"
+            class="popup__close"
           />
-          <h2 class="form__title">Novo local</h2>
+          <h2 class="popup__title">Novo local</h2>
           <input
             type="text"
-            class="form__input form__input_type_place"
+            class="popup__input popup__input_type_place"
             id="place-title-input"
             required
             minlength="2"
             maxlength="30"
             placeholder="Título"
           />
-          <span class="form__input-error place-title-input-error"></span>
+          <span class="popup__input-error place-title-input-error"></span>
           <input
             type="url"
-            class="form__input form__input_type_url"
+            class="popup__input popup__input_type_url"
             id="place-url-input"
             required
             placeholder="Link de imagem"
           />
-          <span class="form__input-error place-url-input-error"></span>
-          <button type="submit" class="form__button-submit">Criar</button>
+          <span class="popup__input-error place-url-input-error"></span>
+          <button type="submit" class="popup__button">Criar</button>
         </form>
       </div>
       <div class="popup popup_type_zoom">
@@ -107,7 +107,7 @@
           <img
             src="images/image-button-close.svg"
             alt="Fechar pop-up"
-            class="zoom__button-close"
+            class="zoom__close"
           />
           <img src=" " alt="" class="zoom__picture" />
           <p class="zoom__caption-text"></p>

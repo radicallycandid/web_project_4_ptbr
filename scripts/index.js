@@ -1,16 +1,18 @@
-// Functionality to edit profile
-
-const buttonEditProfile = document.querySelector(".profile__button-edit");
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const overlayEditProfile = popupEditProfile.querySelector(".popup__overlay");
-const buttonCloseEditProfile = document.querySelector(
-  ".form__button-close_type_edit-profile"
+const buttonCloseEditProfile = popupEditProfile.querySelector(".popup__close");
+const formEditProfile = popupEditProfile.querySelector(".popup__form");
+const formEditProfileName = formEditProfile.querySelector(
+  ".popup__input_type_name"
 );
-const profileName = document.querySelector(".profile__name");
-const profileBio = document.querySelector(".profile__bio");
-const formEditProfile = document.querySelector(".form_type_edit-profile");
-const formEditProfileName = document.querySelector(".form__input_type_name");
-const formEditProfileBio = document.querySelector(".form__input_type_bio");
+const formEditProfileBio = formEditProfile.querySelector(
+  ".popup__input_type_bio"
+);
+
+const profile = document.querySelector(".profile");
+const profileEdit = profile.querySelector(".profile__edit");
+const profileName = profile.querySelector(".profile__name");
+const profileBio = profile.querySelector(".profile__bio");
 
 function toggleFormEditProfile() {
   formEditProfileName.value = profileName.textContent;
@@ -25,32 +27,28 @@ function handleFormSubmitEditProfile(event) {
   popupEditProfile.classList.remove("popup_visible");
 }
 
-[buttonEditProfile, buttonCloseEditProfile, overlayEditProfile].forEach(
-  (element) => {
-    element.addEventListener("click", toggleFormEditProfile);
-  }
-);
+[profileEdit, buttonCloseEditProfile, overlayEditProfile].forEach((element) => {
+  element.addEventListener("click", toggleFormEditProfile);
+});
 
 formEditProfile.addEventListener("submit", handleFormSubmitEditProfile);
 
 // Functionality to add and manage cards
 
-const buttonAddCard = document.querySelector(".profile__button-add");
+const buttonAddCard = profile.querySelector(".profile__add");
 const popupAddCard = document.querySelector(".popup_type_add-card");
 const overlayAddCard = popupAddCard.querySelector(".popup__overlay");
-const buttonCloseAddCard = document.querySelector(
-  ".form__button-close_type_add-card"
-);
-const formAddCard = document.querySelector(".form_type_add-card");
-const formAddCardPlace = document.querySelector(".form__input_type_place");
-const formAddCardUrl = document.querySelector(".form__input_type_url");
+const buttonCloseAddCard = popupAddCard.querySelector(".popup__close");
+const formAddCard = popupAddCard.querySelector(".popup__form");
+const formAddCardPlace = formAddCard.querySelector(".popup__input_type_place");
+const formAddCardUrl = formAddCard.querySelector(".popup__input_type_url");
 const cardContainer = document.querySelector(".cards");
 
 const popupZoom = document.querySelector(".popup_type_zoom");
 const overlayZoom = popupZoom.querySelector(".popup__overlay");
 const imageZoom = popupZoom.querySelector(".zoom__picture");
 const captionZoom = popupZoom.querySelector(".zoom__caption-text");
-const buttonCloseZoom = document.querySelector(".zoom__button-close");
+const buttonCloseZoom = document.querySelector(".zoom__close");
 
 function addCard(imageTitle, imageUrl) {
   const cardTemplate = document.querySelector("#card-template").content;

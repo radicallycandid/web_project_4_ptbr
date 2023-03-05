@@ -1,4 +1,4 @@
-.zoom__button-close {
+.zoom__close {
   display: block;
   align-self: flex-end;
   transform: translateX(36px);
@@ -7,13 +7,13 @@
   transition: opacity 0.5s;
 }
 
-.zoom__button-close:hover {
+.zoom__close:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 
 @media screen and (max-width: 580px) {
-  .zoom__button-close {
+  .zoom__close {
     width: 30px;
     height: 30px;
     transform: translateX(30px);
