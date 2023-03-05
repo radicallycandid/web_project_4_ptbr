@@ -11,7 +11,3 @@
 .popup__error:last-of-type {
   margin-bottom: 20px;
 }
-
-.popup__error_visible {
-  visibility: visible;
-}
