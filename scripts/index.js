@@ -21,6 +21,11 @@ function toggleFormEditProfile() {
   formEditProfileName.value = profileName.textContent;
   formEditProfileBio.value = profileBio.textContent;
   popupEditProfile.classList.toggle("popup_visible");
+  if (popupEditProfile.classList.contains("popup_visible")) {
+    document.addEventListener("keydown", handleKeyDown);
+  } else {
+    document.removeEventListener("keydown", handleKeyDown);
+  }
 }
 
 function handleFormSubmitEditProfile(event) {
@@ -28,6 +33,7 @@ function handleFormSubmitEditProfile(event) {
   profileName.textContent = formEditProfileName.value;
   profileBio.textContent = formEditProfileBio.value;
   popupEditProfile.classList.remove("popup_visible");
+  document.removeEventListener("keydown", handleKeyDown);
 }
 
 [profileEdit, buttonCloseEditProfile, overlayEditProfile].forEach((element) => {
@@ -78,6 +84,7 @@ function addCard(imageTitle, imageUrl) {
       imageZoom.alt = imageTitle;
       captionZoom.textContent = imageTitle;
       popupZoom.classList.toggle("popup_visible");
+      document.addEventListener("keydown", handleKeyDown);
     });
 
   cardContainer.prepend(cardElement);
@@ -118,12 +125,18 @@ function toggleFormAddCard() {
   formAddCardPlace.value = "";
   formAddCardUrl.value = "";
   popupAddCard.classList.toggle("popup_visible");
+  if (popupAddCard.classList.contains("popup_visible")) {
+    document.addEventListener("keydown", handleKeyDown);
+  } else {
+    document.removeEventListener("keydown", handleKeyDown);
+  }
 }
 
 function handleFormSubmitAddCard(event) {
   event.preventDefault();
   addCard(formAddCardPlace.value, formAddCardUrl.value);
   popupAddCard.classList.remove("popup_visible");
+  document.removeEventListener("keydown", handleKeyDown);
 }
 
 [buttonAddCard, buttonCloseAddCard, overlayAddCard].forEach((element) => {
@@ -134,13 +147,10 @@ formAddCard.addEventListener("submit", handleFormSubmitAddCard);
 
 function hideZoomPopup() {
   popupZoom.classList.remove("popup_visible");
+  document.removeEventListener("keydown", handleKeyDown);
 }
 
-[buttonCloseZoom, overlayZoom].forEach((element) => {
-  element.addEventListener("click", hideZoomPopup);
-});
-
-document.addEventListener("keydown", (event) => {
+function handleKeyDown(event) {
   if (event.key === "Escape") {
     const popupVisible = document.querySelector(".popup_visible");
     if (popupVisible === popupEditProfile) {
@@ -151,4 +161,8 @@ document.addEventListener("keydown", (event) => {
       hideZoomPopup();
     }
   }
+}
+
+[buttonCloseZoom, overlayZoom].forEach((element) => {
+  element.addEventListener("click", hideZoomPopup);
 });
