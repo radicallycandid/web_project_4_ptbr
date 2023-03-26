@@ -1,3 +1,7 @@
+import { handleKeyDown, isVisible, openPopup, closePopup } from "./utils.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const overlayEditProfile = popupEditProfile.querySelector(".popup__overlay");
 const buttonCloseEditProfile = popupEditProfile.querySelector(".popup__close");
@@ -18,13 +22,12 @@ formEditProfileName.value = profileName.textContent;
 formEditProfileBio.value = profileBio.textContent;
 
 function toggleFormEditProfile() {
-  formEditProfileName.value = profileName.textContent;
-  formEditProfileBio.value = profileBio.textContent;
-  popupEditProfile.classList.toggle("popup_visible");
-  if (popupEditProfile.classList.contains("popup_visible")) {
-    document.addEventListener("keydown", handleKeyDown);
+  if (isVisible(popupEditProfile)) {
+    closePopup(popupEditProfile);
   } else {
-    document.removeEventListener("keydown", handleKeyDown);
+    formEditProfileName.value = profileName.textContent;
+    formEditProfileBio.value = profileBio.textContent;
+    openPopup(popupEditProfile);
   }
 }
 
@@ -32,8 +35,7 @@ function handleFormSubmitEditProfile(event) {
   event.preventDefault();
   profileName.textContent = formEditProfileName.value;
   profileBio.textContent = formEditProfileBio.value;
-  popupEditProfile.classList.remove("popup_visible");
-  document.removeEventListener("keydown", handleKeyDown);
+  closePopup(popupEditProfile);
 }
 
 [profileEdit, buttonCloseEditProfile, overlayEditProfile].forEach((element) => {
@@ -53,40 +55,11 @@ const cardContainer = document.querySelector(".cards");
 
 const popupZoom = document.querySelector(".popup_type_zoom");
 const overlayZoom = popupZoom.querySelector(".popup__overlay");
-const imageZoom = popupZoom.querySelector(".zoom__picture");
-const captionZoom = popupZoom.querySelector(".zoom__caption-text");
 const buttonCloseZoom = document.querySelector(".zoom__close");
 
-function addCard(imageTitle, imageUrl) {
-  const cardTemplate = document.querySelector("#card-template").content;
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-
-  cardElement.querySelector(".card__picture").src = imageUrl;
-  cardElement.querySelector(".card__picture").alt = imageTitle;
-  cardElement.querySelector(".card__caption-text").textContent = imageTitle;
-
-  cardElement
-    .querySelector(".card__button-like")
-    .addEventListener("click", function (event) {
-      event.target.classList.toggle("card__button-like_active");
-    });
-
-  cardElement
-    .querySelector(".card__button-trash")
-    .addEventListener("click", function (event) {
-      event.target.parentElement.remove();
-    });
-
-  cardElement
-    .querySelector(".card__picture")
-    .addEventListener("click", function (event) {
-      imageZoom.src = imageUrl;
-      imageZoom.alt = imageTitle;
-      captionZoom.textContent = imageTitle;
-      popupZoom.classList.toggle("popup_visible");
-      document.addEventListener("keydown", handleKeyDown);
-    });
-
+function addCard(name, link) {
+  const card = new Card(name, link, "#card-template");
+  const cardElement = card.generateCard();
   cardContainer.prepend(cardElement);
 }
 
@@ -122,47 +95,44 @@ initialCards.forEach(function (card) {
 });
 
 function toggleFormAddCard() {
-  formAddCardPlace.value = "";
-  formAddCardUrl.value = "";
-  popupAddCard.classList.toggle("popup_visible");
-  if (popupAddCard.classList.contains("popup_visible")) {
-    document.addEventListener("keydown", handleKeyDown);
+  if (isVisible(popupAddCard)) {
+    closePopup(popupAddCard);
   } else {
-    document.removeEventListener("keydown", handleKeyDown);
+    formAddCardPlace.value = "";
+    formAddCardUrl.value = "";
+    openPopup(popupAddCard);
   }
-}
-
-function handleFormSubmitAddCard(event) {
-  event.preventDefault();
-  addCard(formAddCardPlace.value, formAddCardUrl.value);
-  popupAddCard.classList.remove("popup_visible");
-  document.removeEventListener("keydown", handleKeyDown);
 }
 
 [buttonAddCard, buttonCloseAddCard, overlayAddCard].forEach((element) => {
   element.addEventListener("click", toggleFormAddCard);
 });
 
+function handleFormSubmitAddCard(event) {
+  event.preventDefault();
+  addCard(formAddCardPlace.value, formAddCardUrl.value);
+  closePopup(popupAddCard);
+}
+
 formAddCard.addEventListener("submit", handleFormSubmitAddCard);
 
-function hideZoomPopup() {
-  popupZoom.classList.remove("popup_visible");
-  document.removeEventListener("keydown", handleKeyDown);
-}
-
-function handleKeyDown(event) {
-  if (event.key === "Escape") {
-    const popupVisible = document.querySelector(".popup_visible");
-    if (popupVisible === popupEditProfile) {
-      toggleFormEditProfile();
-    } else if (popupVisible === popupAddCard) {
-      toggleFormAddCard();
-    } else if (popupVisible === popupZoom) {
-      hideZoomPopup();
-    }
-  }
-}
-
 [buttonCloseZoom, overlayZoom].forEach((element) => {
-  element.addEventListener("click", hideZoomPopup);
+  element.addEventListener("click", () => {
+    closePopup(popupZoom);
+  });
+});
+
+const config = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+const formList = Array.from(document.querySelectorAll(config.formSelector));
+formList.forEach((formElement) => {
+  const formValidator = new FormValidator(config, formElement);
+  formValidator.enableValidation();
 });
