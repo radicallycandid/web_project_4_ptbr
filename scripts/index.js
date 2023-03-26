@@ -1,4 +1,4 @@
-import { handleKeyDown, isVisible, openPopup, closePopup } from "./utils.js";
+import { isVisible, openPopup, closePopup } from "./utils.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
