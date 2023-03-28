@@ -12,26 +12,6 @@ class Card {
     return cardTemplate.querySelector(".card").cloneNode(true);
   }
 
-  _setEventListeners() {
-    this._cardElement
-      .querySelector(".card__button-like")
-      .addEventListener("click", () => {
-        this._handleLikeClick();
-      });
-
-    this._cardElement
-      .querySelector(".card__button-trash")
-      .addEventListener("click", () => {
-        this._handleTrashClick();
-      });
-
-    this._cardElement
-      .querySelector(".card__picture")
-      .addEventListener("click", () => {
-        this._handleCardImageClick();
-      });
-  }
-
   _handleLikeClick() {
     this._cardElement
       .querySelector(".card__button-like")
@@ -52,6 +32,20 @@ class Card {
     captionZoom.textContent = this._name;
     popupZoom.classList.toggle("popup_visible");
     document.addEventListener("keydown", handleKeyDown);
+  }
+
+  _setEventListeners() {
+    this._cardElement
+      .querySelector(".card__button-like")
+      .addEventListener("click", this._handleLikeClick.bind(this));
+
+    this._cardElement
+      .querySelector(".card__button-trash")
+      .addEventListener("click", this._handleTrashClick.bind(this));
+
+    this._cardElement
+      .querySelector(".card__picture")
+      .addEventListener("click", this._handleCardImageClick.bind(this));
   }
 
   generateCard() {
